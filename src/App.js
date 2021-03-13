@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios'
 import Header from './components/Header'
+import Daily from './components/Daily'
 
 class App extends Component{
   constructor(){
@@ -17,16 +18,17 @@ class App extends Component{
     this.updateWorkout = this.updateWorkout.bind(this);
     this.edit = this.edit.bind(this);
     }
-    handleMuscle(val){
-      this.setState({
-        muscle:val
-      });
-    }
     handleDay(val){
       this.setState({
         day:val
       });
     }
+    handleMuscle(val){
+      this.setState({
+        muscle:val
+      });
+    }
+   
     handleReps(val){
       this.setState({
         reps:val
@@ -87,4 +89,50 @@ class App extends Component{
     })
     .catch(err => {console.log(err)})
   }
+  render() {
+    const{day, muscle, rep, set} = this.state;
+    const mappedWorkouts = this.state.workouts.map(workout => {
+      return(
+        <Daily
+        key={workout.id}
+        workout={workout}
+        deleteWorkout={this.deleteWorkout}
+        updateWorkout={this.updateWorkout}
+        edit={this.edit}
+      />
+      );
+    });
+    
+    return (
+      <div className="App">
+      <Header 
+      key={day.id}
+      muscle={muscle}
+      day={this.handleDay}/>
+      <input type="text" placeholder="Name"
+       onChange={e => this.handleName(e.target.value)}
+        value={this.state.name}
+        ></input>
+      <input type="text" placeholder="Day"
+       onChange={e => this.handleDay(e.target.value)}
+        value={this.state.day}
+        ></input>
+      <input type="text" placeholder="Muscle trained"
+       onChange={e => this.handleMuscle(e.target.value)}
+        value={this.state.muscle}
+        ></input>
+      <input type="text" placeholder="Reps"
+       onChange={e => this.handleReps(e.target.value)}
+        value={this.state.rep}
+        ></input>
+      <input type="text" placeholder="Sets"
+       onChange={e => this.handleSets(e.target.value)}
+        value={this.state.set}
+        ></input>
+        <button onClick={() => this.createWorkout (day, muscle, rep, set)}>Create</button>
+        {mappedWorkouts}
+    </div> 
+  );
+}
   }
+export default App;
