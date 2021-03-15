@@ -15,7 +15,7 @@ class Daily extends Component {
     this.setState({
       editing: true
     })
-    this.props.setEdit(workout.day, workout.muscle, workout.reps, workout.sets)
+    this.props.edit(workout.day, workout.muscle, workout.reps, workout.sets)
   }
   updateWorkout = (id) => {
     this.setState({
@@ -24,11 +24,13 @@ class Daily extends Component {
     this.props.updateWorkout(id);
   }
   render() {
-    const { workout, deleteWorkout, setEdit } = this.props;
+    const { workout, deleteWorkout, edit } = this.props;
+    console.log(this.props.workout.image)
     return (
       <div className="tile">
         <div className="daily reports">
           <h2>{workout.day}</h2>
+          <img src={workout.image}></img>
           <p>Workout: {workout.muscle}</p>
           <p>Rep: {workout.reps}</p>
           <p>Set: {workout.sets}</p>

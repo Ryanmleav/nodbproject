@@ -1,55 +1,65 @@
-const workouts = [{
-  id: 0,
-  day: '',
-  muscle: '',
-  rep: 0,
-  set: 0
-}];
+let workouts = [];
 let id = 1;
+let workoutImages = {
+    chest: 'https://www.oldschoollabs.com/wp-content/uploads/2020/07/Upper-Chest-Muscles-Worked2.jpg',
+    back: 'image',
+    shoulders: 'ok',
+    legs: 'this',
+    arms: 'is cool',
+}
 
 module.exports = {
-  getWorkout(req, res) {
-      
-      res.status(200).send(workouts);
-  },
-  createWorkout(req, res) {
-      const { day, muscle, rep, set } = req.body;
-      workouts.push({
-          id,
-          day,
-          muscle,
-          rep,
-          set
-      })
-      id++;
-      res.status(200).send(workouts)
-  },
-  deleteWorkout(req, res) {
-      
-      const { id } = req.params;
-      const index = workouts.findIndex(workout => workout.id == id)
+    getWorkout(req, res) {
 
-      workouts.splice(index, 1)
-      res.status(200).send(workouts)
-  },
-  updateWorkout(req, res) {
-  const { id } = req.params;
-  const { day, muscle, rep, set } = req.body;
+        res.status(200).send(workouts);
+    },
+    createWorkout(req, res) {
+        const { day, muscle, reps, sets } = req.body;
+        let newImage = ''
+        for (let key in workoutImages) {
+            if (muscle === key) {
+                newImage = workoutImages[key]
+            }
+        }
+        console.log(newImage)
 
-  let index = workouts.findIndex(workouts => workouts.id == id);
+        workouts.push({
+            id,
+            day,
+            muscle,
+            image: newImage,
+            reps,
+            sets
+        })
+        id++;
+        res.status(200).send(workouts)
+    },
+    deleteWorkout(req, res) {
 
-  let foundWorkout = workouts[index];
+        const { id } = req.params;
+        const index = workouts.findIndex(workout => workout.id == id)
 
-  foundWorkout = {
-      id: foundWorkout.id,
-      muscle: muscle|| foundWorkout.muscle,
-      day: day || foundWorkout.day,
-      rep: rep || foundWorkout.rep,
-      set: set || foundWorkout.set
+        workouts.splice(index, 1)
+        res.status(200).send(workouts)
+    },
+    updateWorkout(req, res) {
+        const { id } = req.params;
+        const { day, muscle, reps, sets } = req.body;
 
-  }
-  workouts.splice(index, 1, foundWorkout);
+        let index = workouts.findIndex(workouts => workouts.id == id);
 
-  res.status(200).send(workouts)
-  }
+        let foundWorkout = workouts[index];
+
+        foundWorkout = {
+            id: foundWorkout.id,
+            muscle: muscle || foundWorkout.muscle,
+            day: day || foundWorkout.day,
+            reps: reps || foundWorkout.reps,
+            sets: sets || foundWorkout.sets
+
+        }
+        workouts.splice(index, 1, foundWorkout);
+
+        res.status(200).send(workouts)
+    }
 }
