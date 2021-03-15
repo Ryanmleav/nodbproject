@@ -16,7 +16,13 @@ button{
   font-family: Againts;
   font-weight: 700;
   color: whitesmoke;
+  padding: 5px;
   
+}
+button:hover{
+  transition: linear;
+  transition-duration: .5s;
+ background-color: hsl(120, 90%, 24%);
 }
  input{
   background: #070580;
