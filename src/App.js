@@ -118,7 +118,8 @@ console.log(this.state.workouts,'workout array')
           onChange={e => this.handleMuscle(e.target.value)}
           value={this.state.muscle}
         ></input> */}
-        <select onChange={e => this.handleMuscle(e.target.value)}>
+        <select  onChange={e => this.handleMuscle(e.target.value)}>
+          <option placeholder='muscle trained'>Muscle Trained</option>
           <option value='chest'>Chest</option>
           <option value='back'>Back</option>
           <option value='legs'>Legs</option>

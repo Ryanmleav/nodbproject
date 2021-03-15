@@ -2,10 +2,10 @@ let workouts = [];
 let id = 1;
 let workoutImages = {
     chest: 'https://www.oldschoollabs.com/wp-content/uploads/2020/07/Upper-Chest-Muscles-Worked2.jpg',
-    back: 'image',
-    shoulders: 'ok',
-    legs: 'this',
-    arms: 'is cool',
+    back: 'https://image.boxrox.com/2017/06/Upper-Back-Muscles.jpg',
+    shoulders: 'https://miro.medium.com/max/2000/0*7s9ENqOslIlrFVXn',
+    legs: 'https://9to5strength.com/wp-content/uploads/2018/12/Leg-Muscle-Anatomy-2.png',
+    arms: 'https://lh3.googleusercontent.com/proxy/lcQsYWe0Hd87ilsSfK1zW3JH7Bazh8li08UyKkI0A52h9k6PTGxQSwx1aqTKpFLaa0Qc_8nGGdjI5f7RBQLOnIseWPDcPH182_U',
 }
 
 module.exports = {

@@ -43,16 +43,30 @@ button{
 	align-items: baseline;
 	align-content: stretch; 
   color: rgb(220, 220, 220);
-  font-size: 25px;
+  font-size: 30px;
   font-family: Againts;
   width: 200px; 
 }
 
 .mappedworkouts{
   display: flex;
+  
 }
 
 img{
-  width: 20px;
-  height: 20px
+  width: 100px;
+  height: 90px;
+  image-rendering: auto;
+}
+
+select{
+  background: #070580;
+  height: 50px;
+  width: 200px;
+  border-radius: 26%;
+  font-size: 26px;
+  font-family: Againts;
+  font-weight: 600;
+  margin: 13px;
+  color: gainsboro;
 }
