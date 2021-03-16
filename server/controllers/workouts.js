@@ -49,9 +49,15 @@ module.exports = {
         let index = workouts.findIndex(workouts => workouts.id == id);
 
         let foundWorkout = workouts[index];
+        for (let key in workoutImages) {
+            if (muscle === key) {
+                newImage = workoutImages[key]
+            }
+        }
 
         foundWorkout = {
             id: foundWorkout.id,
+            image: newImage,
             muscle: muscle || foundWorkout.muscle,
             day: day || foundWorkout.day,
             reps: reps || foundWorkout.reps,
