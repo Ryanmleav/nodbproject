@@ -30,7 +30,7 @@ button:hover{
   border-radius: 26%;
   font-size: 26px;
   font-family: Againts;
-  font-weight: 600;
+  font-weight: 400;
   margin: 13px;
   color: gainsboro;
 } 
@@ -52,6 +52,7 @@ button:hover{
   font-size: 30px;
   font-family: Againts;
   width: 200px; 
+  font-weight: 400;
 }
 
 .mappedworkouts{
@@ -60,6 +61,7 @@ button:hover{
 }
 
 img{
+  border: rgb(155, 14, 14) 2px solid;
   width: 100px;
   height: 90px;
   image-rendering: auto;
@@ -73,7 +75,7 @@ select{
   border-radius: 26%;
   font-size: 26px;
   font-family: Againts;
-  font-weight: 600;
+  font-weight: 400;
   margin: 13px;
   color: gainsboro;
 }
