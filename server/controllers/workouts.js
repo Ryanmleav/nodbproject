@@ -36,7 +36,7 @@ module.exports = {
     },
     deleteWorkout(req, res) {
 
-        const { id } = req.params;
+        const { id } = req.query; //query
         const index = workouts.findIndex(workout => workout.id == id)
 
         workouts.splice(index, 1)

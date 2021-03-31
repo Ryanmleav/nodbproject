@@ -10,7 +10,9 @@ app.get('/api/workout-tracker', nw.getWorkout);
 
 app.post('/api/workout-tracker', nw.createWorkout);
 
-app.delete('/api/workout-tracker/:id', nw.deleteWorkout);
+//query
+app.delete('/api/workout-tracker', nw.deleteWorkout);
+
 
 app.put('/api/workout-tracker/:id', nw.updateWorkout);
 

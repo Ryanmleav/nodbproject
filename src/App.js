@@ -59,7 +59,7 @@ class App extends Component {
       .catch(err => { console.log(err) })
   }
   deleteWorkout(id) {
-    axios.delete(`/api/workout-tracker/${id}`).then(res => {
+    axios.delete(`/api/workout-tracker?id=${id}`).then(res => {
       this.setState({
         workouts: res.data
       });
